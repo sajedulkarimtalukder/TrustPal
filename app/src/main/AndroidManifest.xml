@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fiu_CaSPR.Frank.safebuk" >
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AfterLogin"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_main"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+
+        </activity>
+        <activity
+            android:name="com.fiu_CaSPR.Frank.FrankIntents.PostActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_post"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".userHome"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_user_home"
+            android:parentActivityName=".AfterLogin"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AfterLogin" />
+        </activity>
+        <activity
+            android:name=".pendingFriends"
+            android:configChanges="orientation"
+            android:label=".pendingFriends"
+            android:parentActivityName=".userHome"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fiu_CaSPR.Frank.safebuk.userHome" />
+        </activity>
+        <activity
+            android:name=".NewTweet"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_new_tweet"
+            android:parentActivityName=".userHome"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fiu_CaSPR.Frank.safebuk.userHome" />
+        </activity>
+        <activity
+            android:name=".fbHome"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_fb_home"
+            android:parentActivityName=".AfterLogin"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AfterLogin" />
+        </activity>
+        <activity
+            android:name="com.mizan.friendstar.MainPageActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+
+        <activity
+            android:name="com.mizan.friendstar.FriendListActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".FetchData"
+            android:label="@string/title_activity_fetch_data" >
+        </activity>
+        <activity
+            android:name=".FriendPickerStarter"
+            android:label="@string/title_activity_friend_picker_starter"
+            android:parentActivityName=".FetchData" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fiu_CaSPR.Frank.safebuk.FetchData" />
+        </activity>
+        <activity
+            android:name=".FriendPicker"
+            android:label="@string/title_activity_friend_picker"
+            android:parentActivityName=".FriendPickerStarter" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fiu_CaSPR.Frank.safebuk.FriendPickerStarter" />
+        </activity>
+
+        <activity
+            android:name=".FriendSelectorView"
+            android:label="@string/title_activity_friend_selector_view"
+            android:parentActivityName=".FriendPickerStarter"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fiu_CaSPR.Frank.safebuk.FriendPickerStarter" />
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.fiu_CaSPR.Frank.safebuk.FetchData"
+    android:background="#3b99eb"
+    android:clickable="true">
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/webView2"
+        android:background="#3b99eb"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/myProgressBar"
+        android:layout_alignRight="@+id/myProgressBar"
+        android:layout_alignEnd="@+id/myProgressBar"></WebView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/myProgressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:indeterminate="false"
+        android:max="100"
+        android:layout_marginTop="20dp"
+        android:minHeight="20dp"
+        android:minWidth="200dp"
+        android:progress="1"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="We are analyzing your profile. "
+        android:id="@+id/textView3"
+        android:layout_above="@+id/myProgressBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="64dp"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Please Wait..."
+        android:id="@+id/textView4"
+        android:layout_above="@+id/myProgressBar"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
