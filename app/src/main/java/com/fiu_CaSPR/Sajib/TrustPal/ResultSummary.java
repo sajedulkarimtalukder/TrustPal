@@ -3,6 +3,7 @@ package com.fiu_CaSPR.Sajib.TrustPal;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -10,10 +11,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class ResultSummary extends ActionBarActivity {
+public class ResultSummary extends AppCompatActivity {
 
     private TextView txtProgress;
     private ProgressBar circularProgressBar;
+
+    static int unsafeCount=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,7 @@ public class ResultSummary extends ActionBarActivity {
 
     private void loadViews() {
 
-        int unsafeCount=0;
+        unsafeCount=0;
         int percentValue=0;
 
         for(int i=0; i<20; i++)

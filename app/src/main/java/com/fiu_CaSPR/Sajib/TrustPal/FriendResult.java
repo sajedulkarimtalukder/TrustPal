@@ -92,6 +92,11 @@ public class FriendResult extends Activity {
 
         txtProgress = (TextView) findViewById(R.id.txtProgress);
         circularProgressBar = (ProgressBar) findViewById(R.id.circularProgressbar);
+
+        int percentValue=0;
+        percentValue=(20-ResultSummary.unsafeCount)*5;
+        txtProgress.setText(percentValue+"%");
+        circularProgressBar.setProgress(percentValue);
         //actionButton = (Button) findViewById(R.id.actionButton);
 
         //totalCountForReview = getTotalCount();
@@ -130,7 +135,7 @@ public class FriendResult extends Activity {
             @Override
             public void onClick(View v) {
 
-
+                    ResultSummary.unsafeCount--;
                     showNext();
                 }
 
@@ -213,7 +218,12 @@ public class FriendResult extends Activity {
     private void resetFields() {
         propicView.setBackgroundResource(R.drawable.icon);
         profileNameTextView.setText("");
+        int percentValue=0;
+        percentValue=(20-ResultSummary.unsafeCount)*5;
+        txtProgress.setText(percentValue + "%");
+        circularProgressBar.setProgress(percentValue);
     }
+    
     public static boolean isNullOrBlank(String s)
     {
         return (s==null || s.trim().equals(""));
@@ -226,7 +236,7 @@ public class FriendResult extends Activity {
             showNext();
         }
         else {*/
-            resetFields();
+        resetFields();
 
         if(friendsPage.friendsArray[currentPictureIndex][2]=="1") { //Unfollow
             safeText.setText("Our result indicates that this friend might be unsafe");
@@ -392,5 +402,6 @@ public class FriendResult extends Activity {
         Intent intent = new Intent(getApplicationContext(),FinishJob.class);
         startActivity(intent);
     }
+
 
 }
