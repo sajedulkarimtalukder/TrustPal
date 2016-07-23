@@ -223,7 +223,7 @@ public class FriendResult extends Activity {
         txtProgress.setText(percentValue + "%");
         circularProgressBar.setProgress(percentValue);
     }
-    
+
     public static boolean isNullOrBlank(String s)
     {
         return (s==null || s.trim().equals(""));

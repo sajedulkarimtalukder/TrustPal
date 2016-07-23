@@ -3,6 +3,7 @@
     package="com.fiu_CaSPR.Sajib.TrustPal">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -209,6 +210,14 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".FriendResult"
+            android:label="@string/title_activity_fake_logout"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FriendSelectorView1" />
+        </activity>
+        <activity
+            android:name=".UploadToServer"
             android:label="@string/title_activity_fake_logout"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data

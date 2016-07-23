@@ -65,7 +65,7 @@ public class ResultSummary extends AppCompatActivity {
         //sort the friendsArray based on priority using bubble sort
         for(int i=0;i<20;i++){
             for(int j=i+1;j<20;j++) {
-                //only checking the 3rd column
+                //only checking the 5th column
                 if (Integer.parseInt(friendsPage.friendsArray[i][4]) > Integer.parseInt(friendsPage.friendsArray[j][4])) {
                     //swap(friendsPage.friendsArray[i],friendsPage.friendsArray[j]);
                     String temp[] = friendsPage.friendsArray[j];
