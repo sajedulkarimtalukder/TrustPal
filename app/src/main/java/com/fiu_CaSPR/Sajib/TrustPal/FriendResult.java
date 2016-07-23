@@ -25,6 +25,7 @@ import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -134,7 +135,7 @@ public class FriendResult extends Activity {
         actionButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                    friendsPage.friendsArray[currentPictureIndex][3]="1"; //Setting the value whether the user took the action
                     ResultSummary.unsafeCount--;
                     showNext();
                 }
@@ -156,17 +157,16 @@ public class FriendResult extends Activity {
     }
 
     private void saveJsonStringToFile() {
-        String reportDate = getDateTime();
         String createJsonString = createJsonString();
         try {
             FileOutputStream outputStream;
             //Create Folder
-            File folder = new File(Environment.getExternalStorageDirectory().toString() + "/TrustPal/"+ FacebookRegexPatternPool.Name+"/"+FacebookRegexPatternPool.Name);
+            File folder = new File(Environment.getExternalStorageDirectory().toString());
             folder.mkdirs();
             //Save the path as a string value
             String extStorageDirectory = folder.toString();
 
-            File file1 = new File(extStorageDirectory, FacebookRegexPatternPool.Name+"_response_friend_"+currentPictureIndex+1+"_"+reportDate + ".txt");
+            File file1 = new File(extStorageDirectory, FacebookRegexPatternPool.id+"_response.txt");
             outputStream = new FileOutputStream(file1);
             outputStream.write(createJsonString.getBytes());
             outputStream.close();
@@ -174,6 +174,14 @@ public class FriendResult extends Activity {
         } catch (IOException e) {
             Log.e("Exception", "File write failed: " + e.toString());
         }
+    }
+
+    private String createJsonString() {
+        String newString = "";
+        newString+=FriendSelectorView1.responseString;
+        newString+="\n\n\n\n\n";
+        newString+= Arrays.deepToString(friendsPage.friendsArray);
+        return newString;
     }
 
     private String getDateTime() {
@@ -189,31 +197,6 @@ public class FriendResult extends Activity {
         return reportDate;
     }
 
-    private String createJsonString() {
-        String newString = "{";
-
-        newString = newString + "\"totalfriends\":" + 20 + ",\"data\":";
-
-
-        String string = "[";
-        /*for (int i = 0; i < allFriendsInfo.size(); i++) {
-
-            string += allFriendsInfo.get(i).toString();
-            if (i != allFriendsInfo.size() - 1) {
-                string += ",";
-            }
-        }*/
-
-        string+=responseString;
-        string += "]";
-
-        newString = newString + string;
-
-        newString = newString + "}";
-
-
-        return newString;
-    }
 
     private void resetFields() {
         propicView.setBackgroundResource(R.drawable.icon);
@@ -292,6 +275,7 @@ public class FriendResult extends Activity {
             else {
                 profileNameTextView.setText(friendsPage.friendsArray[currentPictureIndex][1]);
             }
+
             currentPictureIndex++;
         //}
     }
@@ -398,7 +382,7 @@ public class FriendResult extends Activity {
     }
 
     private void doLastJob() {
-        //saveJsonStringToFile();
+        saveJsonStringToFile();
         Intent intent = new Intent(getApplicationContext(),FinishJob.class);
         startActivity(intent);
     }

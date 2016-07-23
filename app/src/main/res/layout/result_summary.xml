@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Your safety level is"
+                android:text="Your safety score is"
                 android:id="@+id/safeText"
                 android:textColor="#ffffff"
                 android:textSize="32dp"
@@ -102,9 +102,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="You can improve your safety level by taking some quick action."
+                android:text="Do you want to improve your safety score? Let&apos;s revisit some friends."
                 android:id="@+id/usernamenew"
-                android:textColor="#d1881c"
+                android:textColor="#ffffff"
                 android:gravity="center" />
         </LinearLayout>
 
@@ -116,15 +116,6 @@
             android:layout_gravity="center"
             android:padding="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Want to see which friends might be unsafe? "
-                android:id="@+id/actionText"
-                android:textColor="#ffffff"
-                android:layout_gravity="center"
-                android:gravity="center" />
         </LinearLayout>
 
         <LinearLayout
