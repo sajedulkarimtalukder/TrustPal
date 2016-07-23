@@ -24,6 +24,7 @@ public class ResultSummary extends ActionBarActivity {
         txtProgress = (TextView) findViewById(R.id.txtProgress);
         circularProgressBar = (ProgressBar) findViewById(R.id.circularProgressbar);
 
+        sortFriendlist();
         loadViews();
 
         Button ignorebutton = (Button) findViewById(R.id.ignore);
@@ -54,6 +55,22 @@ public class ResultSummary extends ActionBarActivity {
         percentValue=(20-unsafeCount)*5;
         txtProgress.setText(percentValue+"%");
         circularProgressBar.setProgress(percentValue);
+    }
+
+    private void sortFriendlist() {
+
+        //sort the friendsArray based on priority using bubble sort
+        for(int i=0;i<20;i++){
+            for(int j=i+1;j<20;j++) {
+                //only checking the 3rd column
+                if (Integer.parseInt(friendsPage.friendsArray[i][4]) > Integer.parseInt(friendsPage.friendsArray[j][4])) {
+                    //swap(friendsPage.friendsArray[i],friendsPage.friendsArray[j]);
+                    String temp[] = friendsPage.friendsArray[j];
+                    friendsPage.friendsArray[j] = friendsPage.friendsArray[i];
+                    friendsPage.friendsArray[i] = temp;
+                }
+            }
+        }
     }
 
 }
