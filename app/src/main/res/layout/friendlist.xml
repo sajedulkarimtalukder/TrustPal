@@ -75,7 +75,7 @@
                     android:id="@+id/TextView01"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="How frequently do you interact with 'this friend’ in Facebook?"
+                    android:text="How frequently do you interact with this friend in Facebook?"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#fff"
                     android:textAlignment="center"
@@ -93,7 +93,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Daily"
+                        android:text="Frequently"
                         android:textColor="@color/white" />
 
                     <CheckBox
@@ -103,7 +103,7 @@
                         android:layout_margin="0dp"
                         android:layout_weight="0.5"
                         android:padding="0dp"
-                        android:text="Weekly"
+                        android:text="Infrequently"
                         android:textColor="@color/white" />
 
                 </LinearLayout>
@@ -118,7 +118,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Monthly"
+                        android:text="Never"
                         android:textColor="@color/white" />
 
                     <CheckBox
@@ -126,7 +126,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Yearly"
+                        android:text="Don&apos;t Remember"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -139,18 +139,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Never"
+                        android:text="More Frequently in the Past"
                         android:textColor="@color/white" />
-
-                    <CheckBox
-                        android:id="@+id/CheckBox16"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Don&apos;t Recall"
-                        android:textColor="@color/white" />
-
                 </LinearLayout>
+
             </LinearLayout>
 
             <!---*************************** Question 2  ***********************************-->
@@ -166,7 +158,7 @@
                     android:id="@+id/TextView02"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="How frequently do you interact with 'this friend’ in real life?"
+                    android:text="How frequently do you interact with this friend in real life?"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#fff"
                     android:textAlignment="center"
@@ -184,7 +176,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Daily"
+                        android:text="Frequently"
                         android:textColor="@color/white" />
 
                     <CheckBox
@@ -194,7 +186,7 @@
                         android:layout_margin="0dp"
                         android:layout_weight="0.5"
                         android:padding="0dp"
-                        android:text="Weekly"
+                        android:text="Infrequently"
                         android:textColor="@color/white" />
 
                 </LinearLayout>
@@ -209,7 +201,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Monthly"
+                        android:text="Never"
                         android:textColor="@color/white" />
 
                     <CheckBox
@@ -217,7 +209,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Yearly"
+                        android:text="Don&apos;t Remember"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -230,18 +222,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Never"
+                        android:text="More Frequently in the Past"
                         android:textColor="@color/white" />
-
-                    <CheckBox
-                        android:id="@+id/CheckBox26"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Don&apos;t Recall"
-                        android:textColor="@color/white" />
-
                 </LinearLayout>
+
             </LinearLayout>
 
             <!---**************************** Question 3  **********************************-->
@@ -257,7 +241,7 @@
                     android:id="@+id/TextView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="‘This friend’ would abuse or misuse a sensitive picture that I upload (for instance, at the beach or at a party etc.)"
+                    android:text="This friend would abuse or misuse a sensitive picture that you upload (for instance, at the beach or at a party etc.)"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#fff"
                     android:textAlignment="center"
@@ -275,7 +259,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Don&apos;t Know"
+                        android:text="Agree"
                         android:textColor="@color/white" />
 
                     <CheckBox
@@ -285,52 +269,17 @@
                         android:layout_margin="0dp"
                         android:layout_weight="0.5"
                         android:padding="0dp"
-                        android:text="Strongly Agree"
+                        android:text="Disagree"
                         android:textColor="@color/white" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5" >
 
                     <CheckBox
                         android:id="@+id/CheckBox33"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Agree"
+                        android:text="Don&apos;t Know"
                         android:textColor="@color/white" />
 
-                    <CheckBox
-                        android:id="@+id/CheckBox34"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Neither"
-                        android:textColor="@color/white" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <CheckBox
-                        android:id="@+id/CheckBox35"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Disagree"
-                        android:textColor="@color/white" />
-
-                    <CheckBox
-                        android:id="@+id/CheckBox36"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Strongly Disagree"
-                        android:textColor="@color/white" />
 
                 </LinearLayout>
 
@@ -350,7 +299,7 @@
                     android:id="@+id/TextView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="‘This friend’ would abuse a status update that I post (for instance, he/she would reply with an abusive comment or share it in an undesirable way)"
+                    android:text="This friend would abuse a status update that you post (for instance, he/she would reply with an abusive comment or share it in an undesirable way)"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#fff"
                     android:textAlignment="center"
@@ -368,7 +317,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Don&apos;t Know"
+                        android:text="Agree"
                         android:textColor="@color/white" />
 
                     <CheckBox
@@ -378,56 +327,22 @@
                         android:layout_margin="0dp"
                         android:layout_weight="0.5"
                         android:padding="0dp"
-                        android:text="Strongly Agree"
+                        android:text="Disagree"
                         android:textColor="@color/white" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5" >
 
                     <CheckBox
                         android:id="@+id/CheckBox43"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Agree"
+                        android:text="Don&apos;t Know"
                         android:textColor="@color/white" />
 
-                    <CheckBox
-                        android:id="@+id/CheckBox44"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Neither"
-                        android:textColor="@color/white" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <CheckBox
-                        android:id="@+id/CheckBox45"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Disagree"
-                        android:textColor="@color/white" />
-
-                    <CheckBox
-                        android:id="@+id/CheckBox46"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Strongly Disagree"
-                        android:textColor="@color/white" />
 
                 </LinearLayout>
 
             </LinearLayout>
+
 
 
             <!---***************************** Question 5  *********************************-->
@@ -443,7 +358,7 @@
                     android:id="@+id/TextView05"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="'This friend' has my best interest at heart (for instance, he/she would tell me the truth if I ask his/her opinion whether posting a picture is appropriate)"
+                    android:text="This friend would post offensive, misleading, false or potentially malicious content on Facebook"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#fff"
                     android:textAlignment="center"
@@ -461,7 +376,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Don&apos;t Know"
+                        android:text="Agree"
                         android:textColor="@color/white" />
 
                     <CheckBox
@@ -471,145 +386,17 @@
                         android:layout_margin="0dp"
                         android:layout_weight="0.5"
                         android:padding="0dp"
-                        android:text="Strongly Agree"
+                        android:text="Disagree"
                         android:textColor="@color/white" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5" >
 
                     <CheckBox
                         android:id="@+id/CheckBox53"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Agree"
-                        android:textColor="@color/white" />
-
-                    <CheckBox
-                        android:id="@+id/CheckBox54"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Neither"
-                        android:textColor="@color/white" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <CheckBox
-                        android:id="@+id/CheckBox55"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Disagree"
-                        android:textColor="@color/white" />
-
-                    <CheckBox
-                        android:id="@+id/CheckBox56"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Strongly Disagree"
-                        android:textColor="@color/white" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-            <!---***************************** Question 6  *********************************-->
-
-            <LinearLayout
-                android:id="@+id/layoutquestion6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="30px">
-
-                <TextView
-                    android:id="@+id/TextView06"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="This friend would post offensive, misleading, false or potentially malicious content on Facebook"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#fff"
-                    android:textAlignment="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:layout_marginTop="20px" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5" >
-
-                    <CheckBox
-                        android:id="@+id/CheckBox61"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Don&apos;t Know"
                         android:textColor="@color/white" />
 
-                    <CheckBox
-                        android:id="@+id/CheckBox62"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="0dp"
-                        android:layout_weight="0.5"
-                        android:padding="0dp"
-                        android:text="Strongly Agree"
-                        android:textColor="@color/white" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5" >
-
-                    <CheckBox
-                        android:id="@+id/CheckBox63"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Agree"
-                        android:textColor="@color/white" />
-
-                    <CheckBox
-                        android:id="@+id/CheckBox64"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Neither"
-                        android:textColor="@color/white" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <CheckBox
-                        android:id="@+id/CheckBox65"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Disagree"
-                        android:textColor="@color/white" />
-
-                    <CheckBox
-                        android:id="@+id/CheckBox66"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Strongly Disagree"
-                        android:textColor="@color/white" />
 
                 </LinearLayout>
 
