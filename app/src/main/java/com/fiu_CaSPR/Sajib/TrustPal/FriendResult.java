@@ -1,6 +1,7 @@
 package com.fiu_CaSPR.Sajib.TrustPal;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,13 +16,19 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fiu_CaSPR.Sajib.Constants.FacebookRegexPatternPool;
 
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -53,7 +60,7 @@ public class FriendResult extends Activity {
     private LinearLayout layoutQuestion3;
     private LinearLayout layoutQuestion4;
     private LinearLayout layoutQuestion5;
-    private LinearLayout layoutQuestion6;
+    private LinearLayout unsafeDiv;
 
     private TextView safeText;
     private TextView actionText;
@@ -64,13 +71,24 @@ public class FriendResult extends Activity {
     private TextView unfriendText;
     private TextView restrictText;
     private TextView unfollowText;
-    private ImageView safeIcon;
+    //private ImageView safeIcon;
     private Button actionButton;
     private Button ignoreButton;
     private TextView txtProgress;
     private ProgressBar circularProgressBar;
     int userpageindex = 1;
     private TextView frndCounttextView;
+
+    TextView messageText;
+    Button uploadButton;
+    int serverResponseCode = 0;
+    ProgressDialog dialog = null;
+
+    String upLoadServerUri = null;
+
+    /**********  File Path *************/
+    final String uploadFilePath = "/mnt/sdcard/";
+    final String uploadFileName = FacebookRegexPatternPool.id+"_response.txt";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,7 +107,7 @@ public class FriendResult extends Activity {
         unfriendText = (TextView) findViewById(R.id.unfriendText);
         restrictText = (TextView) findViewById(R.id.restrictText);
         unfollowText = (TextView) findViewById(R.id.unfollowText);
-        safeIcon = (ImageView) findViewById(R.id.safeIcon);
+        unsafeDiv = (LinearLayout) findViewById(R.id.unsafeDiv);
 
         txtProgress = (TextView) findViewById(R.id.txtProgress);
         circularProgressBar = (ProgressBar) findViewById(R.id.circularProgressbar);
@@ -180,7 +198,17 @@ public class FriendResult extends Activity {
         String newString = "";
         newString+=FriendSelectorView1.responseString;
         newString+="\n\n\n\n\n";
-        newString+= Arrays.deepToString(friendsPage.friendsArray);
+        //newString+= Arrays.deepToString(friendsPage.friendsArray);
+        // now let's print a two dimensional array in Java
+        for (int i = 0; i<20; i++)
+            { newString+=i+1;
+                for(int j = 0; j<5; j++)
+                {
+                    newString+=","+friendsPage.friendsArray[i][j];
+                }
+                newString+="\n";
+            }
+
         return newString;
     }
 
@@ -222,9 +250,10 @@ public class FriendResult extends Activity {
         resetFields();
 
         if(friendsPage.friendsArray[currentPictureIndex][2]=="1") { //Unfollow
-            safeText.setText("Our result indicates that this friend might be unsafe");
-            safeText.setTextColor(Color.YELLOW);
-            safeIcon.setBackgroundResource(R.drawable.unsafe);
+            //safeText.setText("Our result indicates that this friend might be unsafe");
+            safeText.setTextColor(Color.parseColor("#b50f15"));
+            frndCounttextView.setTextColor(Color.parseColor("#b50f15"));
+            unsafeDiv.setBackgroundColor(Color.YELLOW);
             actionText12.setVisibility(View.INVISIBLE);
             actionText3.setVisibility(View.INVISIBLE);
             actionText4.setVisibility(View.INVISIBLE);
@@ -237,9 +266,9 @@ public class FriendResult extends Activity {
 
         }
         else if(friendsPage.friendsArray[currentPictureIndex][2]=="2") { //Restrict
-            safeText.setText("Our result indicates that this friend is unsafe");
-            safeText.setTextColor(Color.YELLOW);
-            safeIcon.setBackgroundResource(R.drawable.unsafe);
+            //safeText.setText("Our result indicates that this friend is unsafe");
+            //safeText.setTextColor(Color.YELLOW);
+            unsafeDiv.setBackgroundColor(Color.parseColor("#FFF99A1D"));
             actionText12.setVisibility(View.INVISIBLE);
             actionText3.setVisibility(View.VISIBLE);
             actionText4.setVisibility(View.VISIBLE);
@@ -251,9 +280,9 @@ public class FriendResult extends Activity {
             actionButton.setEnabled(true);
         }
         else if(friendsPage.friendsArray[currentPictureIndex][2]=="3") { //Unfriend
-            safeText.setText("Our result indicates that this friend is very unsafe");
-            safeText.setTextColor(Color.RED);
-            safeIcon.setBackgroundResource(R.drawable.unsafe);
+            //safeText.setText("Our result indicates that this friend is very unsafe");
+            //safeText.setTextColor(Color.RED);
+            unsafeDiv.setBackgroundColor(Color.RED);
             actionText12.setVisibility(View.VISIBLE);
             actionText3.setVisibility(View.VISIBLE);
             actionText4.setVisibility(View.VISIBLE);
@@ -291,9 +320,10 @@ public class FriendResult extends Activity {
             currentPictureIndex -= 2;
 
            if(friendsPage.friendsArray[currentPictureIndex][2]=="1") { //Unfollow
-                safeText.setText("Our result indicates that this friend might be unsafe");
-                safeText.setTextColor(Color.YELLOW);
-                safeIcon.setBackgroundResource(R.drawable.unsafe);
+                //safeText.setText("Our result indicates that this friend might be unsafe");
+                safeText.setTextColor(Color.parseColor("#b50f15"));
+                frndCounttextView.setTextColor(Color.parseColor("#b50f15"));
+                unsafeDiv.setBackgroundColor(Color.YELLOW);
                 actionText12.setVisibility(View.INVISIBLE);
                 actionText3.setVisibility(View.INVISIBLE);
                 actionText4.setVisibility(View.INVISIBLE);
@@ -306,9 +336,9 @@ public class FriendResult extends Activity {
 
             }
             else if(friendsPage.friendsArray[currentPictureIndex][2]=="2") { //Restrict
-                safeText.setText("Our result indicates that this friend is unsafe");
-                safeText.setTextColor(Color.YELLOW);
-                safeIcon.setBackgroundResource(R.drawable.unsafe);
+                //safeText.setText("Our result indicates that this friend is unsafe");
+                //safeText.setTextColor(Color.YELLOW);
+                unsafeDiv.setBackgroundColor(Color.parseColor("#FFF99A1D"));
                 actionText12.setVisibility(View.INVISIBLE);
                 actionText3.setVisibility(View.VISIBLE);
                 actionText4.setVisibility(View.VISIBLE);
@@ -320,9 +350,9 @@ public class FriendResult extends Activity {
                 actionButton.setEnabled(true);
             }
             else if(friendsPage.friendsArray[currentPictureIndex][2]=="3") { //Unfriend
-                safeText.setText("Our result indicates that this friend is very unsafe");
-                safeText.setTextColor(Color.RED);
-                safeIcon.setBackgroundResource(R.drawable.unsafe);
+                //safeText.setText("Our result indicates that this friend is very unsafe");
+                //safeText.setTextColor(Color.RED);
+                unsafeDiv.setBackgroundColor(Color.RED);
                 actionText12.setVisibility(View.VISIBLE);
                 actionText3.setVisibility(View.VISIBLE);
                 actionText4.setVisibility(View.VISIBLE);
@@ -382,10 +412,169 @@ public class FriendResult extends Activity {
     }
 
     private void doLastJob() {
+
         saveJsonStringToFile();
+
+        /************* File Upload Code ****************/
+        upLoadServerUri = "http://ocelot.aul.fiu.edu/~stalu001/upload.php";
+
+        dialog = ProgressDialog.show(FriendResult.this, "", "Uploading file...", true);
+
+        new Thread(new Runnable() {
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        //messageText.setText("uploading started.....");
+                    }
+                });
+
+                uploadFile(uploadFilePath + "" + uploadFileName);
+
+            }
+        }).start();
+        /************* File Upload Code Ends ****************/
+
         Intent intent = new Intent(getApplicationContext(),FinishJob.class);
         startActivity(intent);
     }
+    public int uploadFile(String sourceFileUri) {
 
+
+        String fileName = sourceFileUri;
+
+        HttpURLConnection conn = null;
+        DataOutputStream dos = null;
+        String lineEnd = "\r\n";
+        String twoHyphens = "--";
+        String boundary = "*****";
+        int bytesRead, bytesAvailable, bufferSize;
+        byte[] buffer;
+        int maxBufferSize = 1 * 1024 * 1024;
+        File sourceFile = new File(sourceFileUri);
+
+        if (!sourceFile.isFile()) {
+
+            dialog.dismiss();
+
+            Log.e("uploadFile", "Source File not exist :"
+                    +uploadFilePath + "" + uploadFileName);
+
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    messageText.setText("Source File not exist :"
+                            +uploadFilePath + "" + uploadFileName);
+                }
+            });
+
+            return 0;
+
+        }
+        else
+        {
+            try {
+
+                // open a URL connection to the Servlet
+                FileInputStream fileInputStream = new FileInputStream(sourceFile);
+                URL url = new URL(upLoadServerUri);
+
+                // Open a HTTP  connection to  the URL
+                conn = (HttpURLConnection) url.openConnection();
+                conn.setDoInput(true); // Allow Inputs
+                conn.setDoOutput(true); // Allow Outputs
+                conn.setUseCaches(false); // Don't use a Cached Copy
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("Connection", "Keep-Alive");
+                conn.setRequestProperty("ENCTYPE", "multipart/form-data");
+                conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
+                conn.setRequestProperty("uploaded_file", fileName);
+
+                dos = new DataOutputStream(conn.getOutputStream());
+
+                dos.writeBytes(twoHyphens + boundary + lineEnd);
+                dos.writeBytes("Content-Disposition: form-data; name=\"uploaded_file\";filename=\""
+                        + fileName + "\"" + lineEnd);
+
+                dos.writeBytes(lineEnd);
+
+                // create a buffer of  maximum size
+                bytesAvailable = fileInputStream.available();
+
+                bufferSize = Math.min(bytesAvailable, maxBufferSize);
+                buffer = new byte[bufferSize];
+
+                // read file and write it into form...
+                bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+
+                while (bytesRead > 0) {
+
+                    dos.write(buffer, 0, bufferSize);
+                    bytesAvailable = fileInputStream.available();
+                    bufferSize = Math.min(bytesAvailable, maxBufferSize);
+                    bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+
+                }
+
+                // send multipart form data necesssary after file data...
+                dos.writeBytes(lineEnd);
+                dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+
+                // Responses from the server (code and message)
+                serverResponseCode = conn.getResponseCode();
+                String serverResponseMessage = conn.getResponseMessage();
+
+                Log.i("uploadFile", "HTTP Response is : "
+                        + serverResponseMessage + ": " + serverResponseCode);
+
+                if(serverResponseCode == 200){
+
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+
+                            String msg = "File Upload Completed";
+
+                            //messageText.setText(msg);
+                            //Toast.makeText(FriendResult.this, "File Upload Complete.",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+                //close the streams //
+                fileInputStream.close();
+                dos.flush();
+                dos.close();
+
+            } catch (MalformedURLException ex) {
+
+                dialog.dismiss();
+                ex.printStackTrace();
+
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        //messageText.setText("MalformedURLException Exception : check script url.");
+                        Toast.makeText(FriendResult.this, "MalformedURLException", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                Log.e("Upload file to server", "error: " + ex.getMessage(), ex);
+            } catch (Exception e) {
+
+                dialog.dismiss();
+                e.printStackTrace();
+
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        //messageText.setText("Got Exception : see logcat ");
+                        Toast.makeText(FriendResult.this, "Got Exception : see logcat ",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+                Log.e("Upload Exception", "Exception : "
+                        + e.getMessage(), e);
+            }
+            dialog.dismiss();
+            return serverResponseCode;
+
+        } // End else block
+    }
 
 }

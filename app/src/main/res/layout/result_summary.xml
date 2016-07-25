@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Congratulations! You completed the test."
+                android:text="Congratulations! You completed the test successfully."
                 android:id="@+id/textView9"
                 android:textColor="#ffe204"
                 android:textSize="20dp"
@@ -102,10 +102,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Do you want to improve your safety score? Let&apos;s revisit some friends."
+                android:text="Do you want to improve your safety score? Let&apos;s revisit some of your friends."
                 android:id="@+id/usernamenew"
                 android:textColor="#ffffff"
-                android:gravity="center" />
+                android:gravity="center"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -141,7 +142,8 @@
                 android:layout_height="wrap_content"
                 android:text="Next"
                 android:id="@+id/next"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>
