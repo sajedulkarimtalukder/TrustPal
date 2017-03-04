@@ -5,10 +5,10 @@ android {
     buildToolsVersion '23.0.2'
     defaultConfig {
         applicationId 'com.fiu_CaSPR.sajib.TrustPal'
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 21
         versionName "1.0"
-        versionCode 7
+        versionCode 23
     }
     buildTypes {
         release {

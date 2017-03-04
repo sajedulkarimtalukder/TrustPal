@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Do you want to improve your safety score? Let&apos;s revisit some of your friends."
+                android:text="Now let&apos;s revisit some of your friends to improve your safety score."
                 android:id="@+id/usernamenew"
                 android:textColor="#ffffff"
                 android:gravity="center"
@@ -121,21 +121,13 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center_horizontal"
             android:paddingTop="20dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp" >
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ignore"
-                android:id="@+id/ignore"
-                android:layout_weight="1"
-                android:layout_marginRight="20dp" />
 
             <Button
                 android:layout_width="wrap_content"

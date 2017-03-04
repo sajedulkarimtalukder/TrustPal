@@ -224,6 +224,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FriendSelectorView1" />
         </activity>
+        <activity
+            android:name=".UnqualifiedUser"
+            android:label="@string/title_activity_fake_logout"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FriendSelectorView1" />
+        </activity>
+        <activity
+            android:name=".actionReason"
+            android:label="@string/title_activity_fake_logout"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FriendSelectorView1" />
+        </activity>
 
     </application>
 

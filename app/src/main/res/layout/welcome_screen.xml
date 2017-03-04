@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="TrustPal"
+                android:text="TrustPal.v1"
                 android:id="@+id/textView40"
                 android:textColor="#ffffff"
                 android:textIsSelectable="false"

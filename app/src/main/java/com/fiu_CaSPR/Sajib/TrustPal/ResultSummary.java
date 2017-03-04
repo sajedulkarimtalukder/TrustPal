@@ -2,12 +2,10 @@ package com.fiu_CaSPR.Sajib.TrustPal;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -30,7 +28,6 @@ public class ResultSummary extends AppCompatActivity {
         sortFriendlist();
         loadViews();
 
-        Button ignorebutton = (Button) findViewById(R.id.ignore);
         Button nextbutton = (Button) findViewById(R.id.next);
 
         nextbutton.setOnClickListener(new View.OnClickListener() {

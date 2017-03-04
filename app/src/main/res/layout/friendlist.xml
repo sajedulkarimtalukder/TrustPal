@@ -58,6 +58,13 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="#fff" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Medium Text"
+                        android:id="@+id/textView12" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -103,7 +110,7 @@
                         android:layout_margin="0dp"
                         android:layout_weight="0.5"
                         android:padding="0dp"
-                        android:text="Infrequently"
+                        android:text="Occasionally"
                         android:textColor="@color/white" />
 
                 </LinearLayout>
@@ -118,7 +125,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Never"
+                        android:text="Not Anymore"
                         android:textColor="@color/white" />
 
                     <CheckBox
@@ -126,7 +133,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Don&apos;t Remember"
+                        android:text="Never"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -139,7 +146,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="More Frequently in the Past"
+                        android:text="Don&apos;t Remember"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -186,7 +193,7 @@
                         android:layout_margin="0dp"
                         android:layout_weight="0.5"
                         android:padding="0dp"
-                        android:text="Infrequently"
+                        android:text="Occasionally"
                         android:textColor="@color/white" />
 
                 </LinearLayout>
@@ -201,7 +208,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Never"
+                        android:text="Not Anymore"
                         android:textColor="@color/white" />
 
                     <CheckBox
@@ -209,7 +216,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Don&apos;t Remember"
+                        android:text="Never"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -222,7 +229,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="More Frequently in the Past"
+                        android:text="Don&apos;t Remember"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
